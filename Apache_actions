@@ -1,0 +1,39 @@
+<joblist>
+  <job>
+    <context>
+      <options preserveOrder='true'>
+        <option delimiter='|' enforcedvalues='true' multivalued='true' name='ApacheActions' value='status' values='start,status,stop'>
+          <description>Perform actions on Apache service</description>
+          <label>Apache Actions</label>
+        </option>
+      </options>
+    </context>
+    <defaultTab>summary</defaultTab>
+    <description>Perform actions on Apache Nodes</description>
+    <dispatch>
+      <excludePrecedence>true</excludePrecedence>
+      <keepgoing>false</keepgoing>
+      <rankOrder>ascending</rankOrder>
+      <successOnEmptyNodeFilter>false</successOnEmptyNodeFilter>
+      <threadcount>1</threadcount>
+    </dispatch>
+    <executionEnabled>true</executionEnabled>
+    <group>Actions</group>
+    <id>Apache_actions</id>
+    <loglevel>INFO</loglevel>
+    <name>Apache_actions</name>
+    <nodeFilterEditable>false</nodeFilterEditable>
+    <nodefilters>
+      <filter>tags: WEB</filter>
+    </nodefilters>
+    <nodesSelectedByDefault>true</nodesSelectedByDefault>
+    <scheduleEnabled>true</scheduleEnabled>
+    <sequence keepgoing='false' strategy='node-first'>
+      <command>
+        <description>Apache_actions</description>
+        <exec>service apache2 ${option.ApacheActions}</exec>
+      </command>
+    </sequence>
+    <uuid>Apache_actions</uuid>
+  </job>
+</joblist>
